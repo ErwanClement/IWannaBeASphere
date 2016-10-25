@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es5"
+    },
+    "files": [
+        "typings/babylon.d.ts",
+        "Timer.ts",
+		"Player.ts",
+		"UIManager.ts",
+		"DialogueManager.ts",
+		"TriggerManager.ts",
+		"StateMachine.ts",
+        "Game.ts",
+        "Preloader.ts"
+    ]
+}

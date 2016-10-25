@@ -1,0 +1,1 @@
+"D:\CoursIsart\GDP4\JS\bjs-starter-master\ts\Game.ts" "D:\CoursIsart\GDP4\JS\bjs-starter-master\ts\typings\babylon.d.ts" "D:\CoursIsart\GDP4\JS\bjs-starter-master\ts\.baseDir.ts" --sourcemap --target ES5 --module amd --outDir dist/js

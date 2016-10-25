@@ -1,0 +1,33 @@
+{
+	"dialog_01": {
+		"text": ["Il était une fois... Dans une contrée lointaine",
+			"Un cube qui rêvait de devenir une sphère",
+			"Et qui n'avait comme désir dans la vie",
+			"De réaliser ce pour quoi il était né."
+		],
+		"endCallback": "EnablePlayer"
+	},
+
+	"dialog_02": {
+		"text": ["Cube avait réussi à chopper un entretien",
+			"Le genre qui donne grave envie... M'voyez ?"
+		]
+	},
+
+	"dialog_03": {
+		"text": ["Cependant, c'était un entretien réservé aux spheres",
+			"Et Cube... Hé bien... Etait un cube",
+			"Il décida donc de se diriger vers l'entrée du centre commercial"
+		]
+	},
+
+	"dialog_04": {
+		"text": ["Euh... Pas la sortie. L'entrée."]
+	},
+
+	"dialog_05": {
+		"text": ["Le centre commercial était grand... ",
+			"Si grand qu'il lui faisait tourner la tête"
+		]
+	}
+}
