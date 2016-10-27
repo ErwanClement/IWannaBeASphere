@@ -14,7 +14,6 @@ class DialogueManager {
         this.Dialogs = pDialog;
         window.addEventListener('onEndDrawDialogue', this.nextStep.bind(this));
         window.addEventListener('onTriggerDialogue', this.chargeDialog.bind(this));
-        this.uiMan.drawPrettyText("text", true);
     }
 
     private chargeDialog() {
@@ -22,7 +21,7 @@ class DialogueManager {
             this.currentDialog = this.Dialogs["dialog_" + DialogueManager.eventParam];
             console.log("Dial: ", this.currentDialog["text"][0]);
                 
-            this.uiMan.drawPrettyText(this.currentDialog["text"][0]);
+            this.uiMan.drawText(this.currentDialog["text"][0]);
         }
     }
 
@@ -37,7 +36,7 @@ class DialogueManager {
             this.currentIndexDialog = 0;
         }
         else {
-            this.uiMan.drawPrettyText(this.currentDialog["text"][this.currentIndexDialog]);
+            this.uiMan.drawText(this.currentDialog["text"][this.currentIndexDialog]);
         }
     }
     

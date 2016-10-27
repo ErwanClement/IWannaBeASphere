@@ -3,6 +3,7 @@ var UIManager = (function () {
         this.eventEnd = new Event('onEndDrawDialogue');
         this.drawTime = 150;
         this.drawEnd = true;
+        this.messageDisplayed = false;
         this.scene = pScene;
         this.UIText = new BABYLON.Text2D("", {
             id: "text",
@@ -17,18 +18,30 @@ var UIManager = (function () {
             x: window.innerWidth / 2 - 1000,
             children: [this.UIText]
         });
+        this.UIAction = new BABYLON.ScreenSpaceCanvas2D(this.scene, {
+            id: "ActionCanvas",
+            size: new BABYLON.Size(1500, 250),
+            backgroundFill: "#ffffff88",
+            backgroundRoundRadius: 50,
+            x: window.innerWidth / 2 - 1000
+        });
         this.UI.levelVisible = false;
-        this.UI.actionManager = new BABYLON.ActionManager(this.scene);
+        this.UIAction.actionManager = new BABYLON.ActionManager(this.scene);
+        this.UIAction.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, this.onClickText.bind(this)));
     }
-    UIManager.prototype.drawPrettyText = function (pString, test) {
-        if (test === void 0) { test = false; }
+    UIManager.prototype.drawText = function (pString) {
+        this.messageDisplayed = true;
+        this.UI.levelVisible = true;
+        this.UIText.text = pString;
+        this.drawEnd = true;
+    };
+    UIManager.prototype.drawPrettyText = function (pString) {
         console.log(pString);
         if (pString == null || pString == undefined || pString == "")
             return;
         this.UI.levelVisible = true;
         this.clearPrettyDrawVar();
         this.stringToDraw = pString;
-        this.UI.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, this.onClickText.bind(this)));
         this.intervalFunct = setInterval(this.addCharToDrewText.bind(this), this.drawTime);
     };
     UIManager.prototype.addCharToDrewText = function () {
@@ -54,15 +67,19 @@ var UIManager = (function () {
         this.drawEnd = false;
     };
     UIManager.prototype.onClickText = function () {
-        if (this.drawEnd) {
-            this.UI.actionManager.actions = [];
-            this.UI.levelVisible = false;
-            window.dispatchEvent(this.eventEnd);
-        }
-        else {
-            clearInterval(this.intervalFunct);
-            this.drawEnd = true;
-            this.UIText.text = this.stringToDraw;
+        console.log("click");
+        if (this.messageDisplayed) {
+            console.log("click text");
+            if (this.drawEnd) {
+                this.messageDisplayed = false;
+                this.UI.levelVisible = false;
+                window.dispatchEvent(this.eventEnd);
+            }
+            else {
+                clearInterval(this.intervalFunct);
+                this.drawEnd = true;
+                this.UIText.text = this.stringToDraw;
+            }
         }
     };
     return UIManager;
