@@ -1,39 +1,624 @@
 {
 	"dialog_01": {
-		"text": ["Il était une fois... Dans une contrée lointaine",
-			"Un cube qui rêvait de devenir une sphère",
-			"Et qui n'avait comme désir dans la vie",
-			"De réaliser ce pour quoi il était né."
+		"text": ["Il existe un monde, où cohabitent des formes",
+		"géométriques en totale harmonie. Aucune guerre, aucune tension,",
+		"aucune haine n’existent entre eux.",
+		"Vous vous demandez comment une telle paix peut être ?",
+		"Hé bien, je vais vous raconter l’histoire de Cube.",		
+		"Comme tous les jeunes de son âge, Cube recherche",
+		"un travail afin de s’épanouir et de devenir indépendant.",
+		"Mais tout n’est pas aussi simple qu’il paraît :",
+		"Cube a toujours considéré qu’il était une sphère au fond de lui.",
+		"Sauf que dans ce monde, la ségrégation géométrique est",
+		"le pilier principal de la paix.",
+		"Ainsi, les sphères ne peuvent pas avoir le travail des cubes…",
+		"Et les cubes non plus.",
+		"Mais Cube est persuadé qu’il peut être aussi efficace",
+		"qu’une sphère en étant serveur au Pinball,",
+		"le célèbre bar sphérique.",
+		"Et c’est pourquoi il se dirigea vers",
+		"le plan du centre commercial afin de repérer sa destination."
 		],
-		"endCallback": [
-			{"fct": "EnableTrigger", "param": "02"},
-			{"fct": "EnablePlayer"}
-		]
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "02"},
+            {"fct": "EnableTrigger", "param": "03"},
+            {"fct": "EnableTrigger", "param": "04"},   
+            {"fct": "EnableTrigger", "param": "05"},
+            {"fct": "EnableTrigger", "param": "29"},
+            {"fct": "EnablePlayer"}
+        ]
 	},
 
 	"dialog_02": {
-		"text": ["Cube avait réussi à chopper un entretien",
-			"Le genre qui donne grave envie... M'voyez ?"
+		"text": ["Arrivé devant le plan, Cube remarqua que",
+		"le centre commercial était vraiment immense.",
+		"La seule idée d’arriver en retard le stressa à un",
+		"tel point qu’il sentit sa vessie se remplir instantanément."
 		],
-		"endCallback": [
-			{"fct": "EnableTrigger", "param": "03"}
-		]
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "06"},
+            {"fct": "EnableTrigger", "param": "07"},
+            {"fct": "EnablePlayer"}
+        ]
 	},
 
 	"dialog_03": {
-		"text": ["Cependant, c'était un entretien réservé aux spheres",
-			"Et Cube... Hé bien... Etait un cube",
-			"Il décida donc de se diriger vers l'entrée du centre commercial"
-		]
+		"text": ["Oh. Euh. Non, non, non, c’est pas dans le script ça…",
+		"Je n’ai pas pu me tromper quand même… Euh… La remise en question,",
+		"le bisou, les jeux de mots trop drôles… ",
+		"C’est PAS CE QUI ETAIT PREVU !",
+		"Bon tant pis, je ferai avec mais",
+		"ne t’avise pas d’aller contre le scénario à nouveau."
+		],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "23"},
+            {"fct": "EnablePlayer"}
+        ]
 	},
 
 	"dialog_04": {
-		"text": ["Euh... Pas la sortie. L'entrée."]
+		"text": ["Malgré sa petite vessie, Cube ne put s’empêcher",
+		"de s’émerveiller devant la grande Sculpture",
+		"du dieu Ballon. Il fit le voeu qu’un jour,",
+		"il soit reconnu comme ce qu’il voulait vraiment être, lui." 
+		],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
 	},
 
 	"dialog_05": {
-		"text": ["Le centre commercial était grand... ",
-			"Si grand qu'il lui faisait tourner la tête"
-		]
+		"text": ["Cube mis de côté son envie terrible de se soulager",
+		"pour se rapprocher du scandale qui éclatait",
+		"entre les deux cubes et la sphère depuis tout à l’heure"],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "24"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_06": {
+		"text": ["Naturellement, Cube aurait voulu uriner avec les sphères.",
+		"Mais la porte d’entrée était ronde",
+		"et ses angles droits l’empêchaient d’y pénétrer."
+		],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "09"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_07": {
+		"text": ["Cube essaya malgré tout de rentrer,",
+		"mais aucune magie n'opéra, il resta véritablement dehors."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "08"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_08": {
+		"text": ["J’ai dis… Que c’était IMPOSSIBLE d’y entrer."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_09": {
+		"text": ["Cela devenait très pressant, vite !"],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "10"},
+            {"fct": "EnableTrigger", "param": "11"},
+            {"fct": "EnableTrigger", "param": "13"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_10": {
+		"text": ["Aaaah. Cube avait enfin pu relâcher sa vessie.",
+		"Maintenant qu’il était moins stressé, il pouvait se remettre à chercher."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "12"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_11": {
+		"text": ["Aucun reflet de lui. Aucune image.",
+		"Cube est-il une sphère ou un cube ?",
+		"Doit-il vraiment appartenir à l’un ou l’autre ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_12": {
+		"text": ["C’est en ayant l’esprit plus clair que Cube se rendit compte",
+		"subitement qu’il lui manquait son noeud papillon.",
+		"Il ne pouvait pas se présenter à son entretien sans l’avoir.",
+		"Cela tombait bien, il était à côté d’un super",
+		"magasin d’habits pour Cube, juste en face de chez Spherio."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "14"},
+            {"fct": "EnableTrigger", "param": "24"},
+            {"fct": "EnableTrigger", "param": "29"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_13": {
+		"text": ["Bon… Euhm… Finalement Cube n’avait peut être pas si envie que ça.",
+		"J’exagère parfois ma narration… Hum."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "12"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_14": {
+		"text": ["Mais ce n’était vraiment pas de chance.",
+		"Le magasin adéquat était en rubcube de stock !",
+		"Cube ne se laissa pas abattre, après tout,",
+		"c’était peut être un message pour lui d’aller chez Spherio…"],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "17"},
+            {"fct": "EnableTrigger", "param": "15"},
+            {"fct": "EnableTrigger", "param": "16"},
+            {"fct": "EnableTrigger", "param": "24"},
+            {"fct": "EnableTrigger", "param": "29"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_15": {
+		"text": ["Ou peut être que ce n’en était pas un.",
+		"Après tout, on s’en fiche du noeud papillon.",
+		"N’est CE PAS CUBE ? *le narrateur tousse* bon, bref."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "23"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_16": {
+		"text": ["Euh… Je n’ai plus souvenir dans le script",
+		"de si tu t’étais déjà émerveillé devant ou pas.",
+		"Bon on a qu’a dire que… Waw, quelle statue. Trop cool."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_17": {
+		"text": ["Cube se sentit brusquement mal.",
+		"La magnifique ceinture rose qui entourait le corps",
+		"de ce mannequin sphère élancé était si belle",
+		"qu’il voulu aussitôt l’acheter pour lui.",
+		"Mais il savait pertinemment qu’en l’essayant, elle finirait",
+		"par se déchirer à cause de ses arêtes.",
+		"Plus rien ne le motivait, il n’avait qu’une envie,",
+		"c’était de s’asseoir et de se concentrer avant son entretien."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "18"},
+            {"fct": "EnableTrigger", "param": "19"},
+            {"fct": "EnableTrigger", "param": "20"},
+            {"fct": "EnableTrigger", "param": "24"},
+            {"fct": "EnableTrigger", "param": "29"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_18": {
+		"text": ["Bon euh… On a qu’a dire que tu peux",
+		"t’asseoir aussi à l’étage hein."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "23"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_19": {
+		"text": ["... Non mais j’ai vraiment perdu mes feuilles,",
+		"donc voila, belle statue du dieu. Cool cool. "],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_20": {
+		"text": ["Cube n’avait jamais eu de petite amie.",
+		"Pour lui, les cubes n’étaient pas ou peu attirantes.",
+		"Il se voyait souvent accompagné d’une belle sphère,",
+		"faisant sa vie avec elle.",
+		"Mais…",
+		"Tant qu’il serait un cube aux yeux des autres,",
+		"il ne pourrait pas vivre d’histoire d’amour.",
+		"Cela ne servait à rien de s’apitoyer sur son sort,",
+		"le bar Pinball n’était pas au premier étage,",
+		"Cube se leva et se dirigea vers l'ascenseur."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "21"},
+            {"fct": "EnableTrigger", "param": "22"},
+            {"fct": "EnableTrigger", "param": "24"},
+            {"fct": "EnableTrigger", "param": "29"},
+            {"fct": "EnableTrigger", "param": "23"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_21": {
+		"text": ["Ceci n’est pas un ascenseur"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_22": {
+		"text": ["Oh ? Encore une envie de faire pipi ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_23": {
+		"text": ["Oh, quelle musique agréable."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "30"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_24": {
+		"text": ["Cube s’approcha un petit peu plus.",
+		"Le ton montait dangereusement entre les",
+		"deux cubes et la pauvre sphère qui semblait se faire agresser.",
+		"L’un des cubes fixa Cube et lui demanda",
+		"de se retirer et de se mêler de ses affaires.",
+		"Cube, peureux, recula."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "25"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_25": {
+		"text": ["Cube retourna vers eux, il n’était pas question",
+		"qu’il laisse la jolie sphère se faire agresser.",
+		"Le plus menaçant saisit alors l’une de ses arêtes",
+		"et le poussa en arrière.",
+		"Cube allait vraiment se faire tabasser s’il continuait comme ça…"],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "26"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_26": {
+		"text": ["Mais il semblait résistant et motiver à se prendre un coup de poi-",
+		"euh… Pardon, je veux dire sauver la sphère.",
+		"Le grand méchant cube attrape Cube par une face",
+		"et le menaça une dernière fois,",
+		"lui laissant une unique chance de se retirer."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "27"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_27": {
+		"text": ["MAIS BORDEL DE TRIANGLE !",
+		"QU’EST CE QUE TU NE COMPRENDS PAS QUAND",
+		"JE TE DIS QUE TU VAS TE FAIRE TABASSER ?",
+		"C’EST VRAIMENT CE QUE TU VEUX ???",
+		"NE PAS AVOIR TON JOB ??",
+		"RECULE CUBE."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "28"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_28": {
+		"text": ["... Ce n’était pas dans le script, mais",
+		"je suis obligé de le faire vu que tu tiens",
+		"absolument à te montrer justicieux défenseur de la paix :",
+		"Waw.",
+		"Cube sauva la sphere.",
+		"Waw.",
+		"La sphère tomba amoureuse de Cube.",
+		"Waw.",
+		"Et ils eurent beaucoup de losanges.",
+		"ON RETOURNE À L'HISTOIRE ORIGINEL MAINTENANT ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_29": {
+		"text": ["Cube fixa l’affiche du film pendant quelques secondes.",
+		"Il l’avait déjà vu au cinéma :",
+		"un vrai film de boule...",
+		"et une histoire magnifique derrière bien sur..."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_30": {
+		"text": ["En arrivant au deuxième étage, Cube repéra aussitôt",
+		"le célèbre bar ou il devait se présenter.",
+		"Une sorte de panique légère s’empara de lui.",
+		"Il devait vérifier qu’il était bien présentable",
+		"ses cheveux semblaient partir dans tous les sens.",
+		"Peut être qu’au salon de coiffure ils auraient un peigne à lui prêter. "],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "31"},
+            {"fct": "EnableTrigger", "param": "32"},
+            {"fct": "EnableTrigger", "param": "33"},
+            {"fct": "EnableTrigger", "param": "34"},
+            {"fct": "EnableTrigger", "param": "35"},
+            {"fct": "EnableTrigger", "param": "36"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_31": {
+		"text": ["Cube s’arrêta devant cette grande sculpture pour",
+		"l’admirer quelque peu.",
+		"Après tout, pourquoi pas prendre son temps ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_32": {
+		"text": ["La fière statue de Einsphere et de René Descubes"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_33": {
+		"text": ["Pourquoi n’était-il pas comme ces gens ?",
+		"Musclé, élancé, beau, bourré d’atouts à la naissance.",
+		"Une aisance sans équivoque à devenir quelqu’un d’autre. "],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_34": {
+		"text": ["Ou pas…",
+		"Cube décida d’en finir une bonne fois pour toute ,après tout",
+		"il ne ressemblait à rien mais on s’en fiche à ce qu’il parait."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "43"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_35": {
+		"text": ["C’est fermé.",
+		"Fin.",
+		"Dans le scénario c’est juste pas encore ouvert.",
+		"C’est tout.",
+		"C’est fermé.",
+		"Compris ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_36": {
+		"text": ["Dans le script il est écrit que Cube n’a aucune raison de partir",
+		"sans avoir passé son entretien…",
+		"Alors explique moi ce que tu fais dans cet ascenseur…",
+		"Me dit quand même pas que tu en es tombé amoureux…"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_37": {
+		"text": ["Le vendeur, très gentil, expliqua à Cube qu’il n’avait guère besoin de se recoiffer.",
+		"Il était parfait comme il était…",
+		"Quoi qu’une petite coupe lui ferait du bien.",
+		"Cube refusa, rassuré, et expliqua au vendeur qu’il venait pour un entretien.",
+		"Ce à quoi ce dernier répondit qu’il était heureux de rencontrer un futur chirurgien…",
+		"Cube lui tourna le dos sans répondre et se dirigea vers le Pinball."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "38"},
+            {"fct": "EnableTrigger", "param": "39"},
+            {"fct": "EnableTrigger", "param": "40"},
+            {"fct": "EnableTrigger", "param": "41"},
+            {"fct": "EnableTrigger", "param": "42"},
+            {"fct": "EnableTrigger", "param": "57"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_38": {
+		"text": ["Oh j’ai oublié ce que c’est.",
+		"Essaye dans une autre branche.",
+		"Tu vois pas que j’essaye de te trouver un travail ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_39": {
+		"text": ["La fière statue de Einsphere et de René descubes…",
+		"Attends je l’ai pas déjà dit ça ?"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_40": {
+		"text": ["À croire que Cube préférait les pectoraux que les smoothies alcoolisés…"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_41": {
+		"text": ["C’est toujours fermé. Pas de chance. "],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_42": {
+		"text": ["Mais lache cet ascenseur petit !",
+		"Il t’apportera rien de bon !",
+		"Tu as déjà vu Destination Finale 2 ?",
+		"Non ?",
+		"Ben je te spoile. À la fin, ils meurent."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_43": {
+		"text": ["En entrant dans le bar, des dizaines d’yeux se braquèrent sur Cube.",
+		"Les sphères ne comprenaient sincèrement pas ce que faisait un cube ici.",
+		"Il n’appartenait pas à leur communauté.",
+		"Cube déglutit, mal à l’aise subitement",
+		"et fonça tout droit vers la porte du fond pour rejoindre les bureaux du patron."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "44"},
+            {"fct": "EnableTrigger", "param": "45"},
+            {"fct": "EnableTrigger", "param": "48"},
+            {"fct": "EnableTrigger", "param": "49"},
+            {"fct": "EnableTrigger", "param": "50"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_44": {
+		"text": ["Cube essaya de se détendre malgré tout en commandant un verre au bar.",
+		"Ce à quoi le barman répondit",
+		"qu’il ne servait que les sphères rondes et bien dodus."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_45": {
+		"text": ["De magnifiques sphères en petites tenues se trémoussaient autour d’une barre.",
+		"Cube préféra les observer de loin."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "46"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_46": {
+		"text": ["Enfin quoi que…",
+		"Il était malgré tout un petit peu interessé.",
+		"Pourquoi pas se rincer les polygones ?",
+		"Après tout, ce n’est pas tous les jours qu’il pouvait voir ça..."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "47"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_47": {
+		"text": ["Oh euhm.",
+		"Je pense qu’il est temps de s’en aller Cube,",
+		"c’est un jeu sans pegi mais tout de même.",
+		"Hum."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_48": {
+		"text": ["Cube sortie du bar pour prendre un peu l’air,",
+		"toute cette subite tension le fit trembler quelque peu",
+		"mais une fois qu’il aurait retrouvé ses esprits,",
+		"il pourrait affronter son destin."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_49": {
+		"text": ["A partir de maintenant,",
+		"cet ascenseur est hors service jusqu’à la fin du scénario.",
+		"N’essaye même pas de protester."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_50": {
+		"text": ["Le couloir semblait particulièrement sobre, et long."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "51"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+	"dialog_51": {
+		"text": ["Cube avançait sans réel but."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "52"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_52": {
+		"text": ["Est ce qu’il pourrait vivre comme une sphère ?"],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "53"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_53": {
+		"text": ["Il l'espérait vraiment..."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "54"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_54": {
+		"text": ["Cube s’assit dans le bureau du grand patron Sphere.",
+		"Le patron examina le cube en face de lui et fit la grimace.",
+		"Cube sentit l’homme perdu en face de lui.",
+		"Il essaya de lui expliquer qu’il était venu pour ce job",
+		"car il se sentait capable de le faire et qu’il en avait les capacités.",
+		"Ce à quoi, le patron lui répondit",
+		"qu’il le croyait et qu’il pensait sincèrement qu’il serait un bon serveur… ",
+		"Cependant,",
+		"dans la nature des choses, il n’était pas une sphère,",
+		"et il pourrait avoir tout le talent du monde, il n’en serait jamais une.",
+		"Cube se leva et sortit du bureau, le coeur en miette."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "55"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_55": {
+		"text": ["Cube ne pouvait garder cette rancoeur.",
+		"Cette apparence extérieure faisait de lui un cube aux yeux des autres,",
+		"alors qu’il se sentait sphère depuis le début.",
+		"Il était temps que ça change.",
+		"Il était temps…",
+		"Qu'il devienne qui il était vraiment.",
+		"Ses yeux se posèrent sur la clinique."],
+        "endCallback": [
+            {"fct": "EnableTrigger", "param": "56"},
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_56": {
+		"text": ["Aujourd’hui, chacun est jugé sur son apparence première.",
+		"La coupe de cheveux, le sexe, le rang social,",
+		"tout est un moyen de dénigrer ou d’interpréter le monde.",
+		"Et comme Cube, certains ne soutiennent pas la pression.", 
+		"Comme Cube,",
+		"certains sont obligés de rentrer dans le moule sociétal afin de pouvoir être eux.",
+		"Ca ne devrait pas être.",
+		"Malheureusement, aujourd’hui aussi,",
+		"Cube est devenu une Sphère."],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
+	},
+
+	"dialog_57": {
+		"text": ["À une époque la grand mère de Cube regardait Fort Boyard.",
+		"Cube se mit à rire devant l’affiche tout seul.",
+		"Que de souvenirs !"],
+        "endCallback": [
+            {"fct": "EnablePlayer"}
+        ]
 	}
 }
