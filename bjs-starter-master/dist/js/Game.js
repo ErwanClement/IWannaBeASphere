@@ -58,7 +58,7 @@ var Game = (function () {
     };
     Game.prototype._initGame = function () {
         //Game.scene.debugLayer.show();
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "toilette.babylon", Game.scene, function () { });
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function () { });
         //TEST: Creation d'un trigger de dialogue
         var mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
         mesh.position.y = 2;
