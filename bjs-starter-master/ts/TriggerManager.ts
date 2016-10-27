@@ -36,7 +36,7 @@ class TriggerManager {
     }
 
     //Active ou desactive un Trigger
-    public switchTriggerArray(pTriggerToActivate: Array<BABYLON.Mesh>, pActivate: boolean = true): void {
+    public switchTriggerArray(pTriggerToActivate: Array<BABYLON.Mesh>, pActivate: boolean = true, pTriggerToActivateString: string = null): void {
         let lOriginArray: Array<BABYLON.Mesh>;
         let lDestinationArray: Array<BABYLON.Mesh>;
         if (pActivate) {
@@ -47,16 +47,31 @@ class TriggerManager {
             lDestinationArray = this._triggerInactiveArray;
         }
 
-        //Pour chaque objet que l'on veut ajouter ...
-        for (let i = 0; i < pTriggerToActivate.length; i++) {
-            let lObjectToMove: BABYLON.Mesh;
-            //... on regarde ça position dans l'array ou il est stocké, ...
+        if (pTriggerToActivate.length != 0) {
+            //Pour chaque objet que l'on veut ajouter ...
+            for (let i = 0; i < pTriggerToActivate.length; i++) {
+                let lObjectToMove: BABYLON.Mesh;
+                //... on regarde ça position dans l'array ou il est stocké, ...
+                for (let j = 0; j < lOriginArray.length; j++) {
+                    if (lOriginArray[j].name == pTriggerToActivate[i].name) {
+                        //... on le met dans l'array desiré ...
+                        lObjectToMove = lOriginArray[j];
+                        lDestinationArray.push(lObjectToMove);
+                        //... et on l'enleve de l'ancien.
+                        let indexOrigin = lOriginArray.indexOf(lObjectToMove)
+                        if (indexOrigin == -1) {
+                            console.log("Error Trigger ID not found");
+                            return;
+                        }
+                        lOriginArray.splice(indexOrigin, 1);
+                    }
+                }
+            }
+        } else if (pTriggerToActivateString != null) {
             for (let j = 0; j < lOriginArray.length; j++) {
-                if (lOriginArray[j].name == pTriggerToActivate[i].name) {
-                    //... on le met dans l'array desiré ...
-                    lObjectToMove = lOriginArray[j];
+                if (lOriginArray[j].name == pTriggerToActivateString) {
+                    let lObjectToMove: BABYLON.Mesh = lOriginArray[j];
                     lDestinationArray.push(lObjectToMove);
-                    //... et on l'enleve de l'ancien.
                     let indexOrigin = lOriginArray.indexOf(lObjectToMove)
                     if (indexOrigin == -1) {
                         console.log("Error Trigger ID not found");
@@ -64,7 +79,7 @@ class TriggerManager {
                     }
                     lOriginArray.splice(indexOrigin, 1);
                 }
-            }            
-        }
+            }
+        } else console.log("Error can switch");
     }
 }

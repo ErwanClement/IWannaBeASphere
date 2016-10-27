@@ -5,12 +5,18 @@
 			"Et qui n'avait comme désir dans la vie",
 			"De réaliser ce pour quoi il était né."
 		],
-		"endCallback": "EnablePlayer"
+		"endCallback": [
+			{"fct": "EnableTrigger", "param": "02"},
+			{"fct": "EnablePlayer"}
+		]
 	},
 
 	"dialog_02": {
 		"text": ["Cube avait réussi à chopper un entretien",
 			"Le genre qui donne grave envie... M'voyez ?"
+		],
+		"endCallback": [
+			{"fct": "EnableTrigger", "param": "03"}
 		]
 	},
 

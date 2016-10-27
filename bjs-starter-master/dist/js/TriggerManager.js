@@ -34,8 +34,9 @@ var TriggerManager = (function () {
         }
     };
     //Active ou desactive un Trigger
-    TriggerManager.prototype.switchTriggerArray = function (pTriggerToActivate, pActivate) {
+    TriggerManager.prototype.switchTriggerArray = function (pTriggerToActivate, pActivate, pTriggerToActivateString) {
         if (pActivate === void 0) { pActivate = true; }
+        if (pTriggerToActivateString === void 0) { pTriggerToActivateString = null; }
         var lOriginArray;
         var lDestinationArray;
         if (pActivate) {
@@ -46,16 +47,32 @@ var TriggerManager = (function () {
             lOriginArray = TriggerManager._triggerActiveArray;
             lDestinationArray = this._triggerInactiveArray;
         }
-        //Pour chaque objet que l'on veut ajouter ...
-        for (var i = 0; i < pTriggerToActivate.length; i++) {
-            var lObjectToMove = void 0;
-            //... on regarde �a position dans l'array ou il est stock�, ...
+        if (pTriggerToActivate.length != 0) {
+            //Pour chaque objet que l'on veut ajouter ...
+            for (var i = 0; i < pTriggerToActivate.length; i++) {
+                var lObjectToMove = void 0;
+                //... on regarde �a position dans l'array ou il est stock�, ...
+                for (var j = 0; j < lOriginArray.length; j++) {
+                    if (lOriginArray[j].name == pTriggerToActivate[i].name) {
+                        //... on le met dans l'array desir� ...
+                        lObjectToMove = lOriginArray[j];
+                        lDestinationArray.push(lObjectToMove);
+                        //... et on l'enleve de l'ancien.
+                        var indexOrigin = lOriginArray.indexOf(lObjectToMove);
+                        if (indexOrigin == -1) {
+                            console.log("Error Trigger ID not found");
+                            return;
+                        }
+                        lOriginArray.splice(indexOrigin, 1);
+                    }
+                }
+            }
+        }
+        else if (pTriggerToActivateString != null) {
             for (var j = 0; j < lOriginArray.length; j++) {
-                if (lOriginArray[j].name == pTriggerToActivate[i].name) {
-                    //... on le met dans l'array desir� ...
-                    lObjectToMove = lOriginArray[j];
+                if (lOriginArray[j].name == pTriggerToActivateString) {
+                    var lObjectToMove = lOriginArray[j];
                     lDestinationArray.push(lObjectToMove);
-                    //... et on l'enleve de l'ancien.
                     var indexOrigin = lOriginArray.indexOf(lObjectToMove);
                     if (indexOrigin == -1) {
                         console.log("Error Trigger ID not found");
@@ -65,6 +82,8 @@ var TriggerManager = (function () {
                 }
             }
         }
+        else
+            console.log("Error can switch");
     };
     TriggerManager._triggerActiveArray = [];
     return TriggerManager;

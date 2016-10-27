@@ -41,9 +41,12 @@ class Game {
             var loaderDialogue = new BABYLON.AssetsManager(Game.scene);
             var textTask = loaderDialogue.addTextFileTask("dialogs", "dialogs.json");
             textTask.onSuccess = (task: BABYLON.TextFileAssetTask) => {
-                //... et créer les manager liésv (UIManager et Sound Manager
+                //... et créer les manager liésv (UIManager, Sound Manager et du triggerMan)
+                this.triggerMan = new TriggerManager();
                 this.uiMan = new UIManager(Game.scene);
-                this.dialogueMan = new DialogueManager(JSON.parse(task.text), this.uiMan);
+                this.dialogueMan = new DialogueManager(JSON.parse(task.text), this.uiMan, this.triggerMan);
+
+                this._initGame();
             }
             textTask.onError = (task: BABYLON.TextFileAssetTask) => { console.log("errorload"); }
 
@@ -63,12 +66,19 @@ class Game {
     private _initScene() {
         Game.scene = new BABYLON.Scene(Game.engine);
         Game.scene.collisionsEnabled = true;
-        this.triggerMan = new TriggerManager();
 
         let light = new BABYLON.HemisphericLight('', new BABYLON.Vector3(0, 1, 0), Game.scene);
         light.intensity = 0.7;
-        
-        this._initGame();
+
+        //Creation et Parametrage de la camera
+        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-1, 1, 0), Game.scene);
+        this.camera.rotationOffset = -90;
+        this.camera.maxCameraSpeed = 5;
+        //this.camera.cameraAcceleration = 0.05;
+        //this.camera.radius = 30; // how far from the object to follow
+        //this.camera.heightOffset = 8; // how high above the object to place the camera
+        //this.camera.rotationOffset = 180; // the viewing angle
+        //this.scene.activeCamera = camera;
 
         //window.addEventListener("keyup", (e: KeyboardEvent) => { console.log(TriggerManager.triggerActiveArray); });
     }
@@ -79,26 +89,27 @@ class Game {
 
         BABYLON.SceneLoader.ImportMesh("", "scenes/", "toilette.babylon", Game.scene, () => { });
 
-        this.player = Player.getInstance();
-        this.gameElement.push(this.player);
-
         //TEST: Creation d'un trigger de dialogue
         let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
-        mesh.position.y = 3;
+        mesh.position.y = 2;
         mesh.position.x = 4;
-        mesh.alphaIndex = 0;
         this.triggerMan.addTrigger(mesh);
+
+        let mesh2 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_02", { size: 1 }, Game.scene);
+        mesh2.position.y = 2;
+        mesh2.position.x = -4;
+        mesh2.position.z = -4;
+        this.triggerMan.addTrigger(mesh2);
         this.triggerMan.switchTriggerArray([mesh]);
 
-        //Creation et Parametrage de la camera
-        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-1, 1, 0), Game.scene);
+        let mesh3 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_03", { size: 1 }, Game.scene);
+        mesh3.position.y = 2;
+        mesh3.position.x = 4;
+        mesh3.position.z = -4;
+        this.triggerMan.addTrigger(mesh3);
+
+        this.player = Player.getInstance();
+        this.gameElement.push(this.player);
         this.camera.target = this.player.mesh;
-        this.camera.rotationOffset = -90;
-        this.camera.maxCameraSpeed = 5;
-        //this.camera.cameraAcceleration = 0.05;
-        //this.camera.radius = 30; // how far from the object to follow
-        //this.camera.heightOffset = 8; // how high above the object to place the camera
-        //this.camera.rotationOffset = 180; // the viewing angle
-        //this.scene.activeCamera = camera;
     }
 }
