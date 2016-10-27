@@ -87,7 +87,7 @@ class Game {
     private _initGame() {
         //Game.scene.debugLayer.show();
 
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "toilette.babylon", Game.scene, () => { });
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, () => { });
 
         //TEST: Creation d'un trigger de dialogue
         let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
