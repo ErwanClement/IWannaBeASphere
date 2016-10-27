@@ -1,7 +1,7 @@
 var UIManager = (function () {
     function UIManager(pScene) {
         this.eventEnd = new Event('onEndDrawDialogue');
-        this.drawTime = 150;
+        this.drawTime = 50;
         this.drawEnd = true;
         this.messageDisplayed = false;
         this.scene = pScene;
@@ -36,7 +36,6 @@ var UIManager = (function () {
         this.drawEnd = true;
     };
     UIManager.prototype.drawPrettyText = function (pString) {
-        console.log(pString);
         if (pString == null || pString == undefined || pString == "")
             return;
         this.UI.levelVisible = true;
@@ -65,11 +64,10 @@ var UIManager = (function () {
         this.currentDrawString = " ";
         this.countDrawLetter = 0;
         this.drawEnd = false;
+        this.messageDisplayed = true;
     };
     UIManager.prototype.onClickText = function () {
-        console.log("click");
         if (this.messageDisplayed) {
-            console.log("click text");
             if (this.drawEnd) {
                 this.messageDisplayed = false;
                 this.UI.levelVisible = false;

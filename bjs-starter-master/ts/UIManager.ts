@@ -7,7 +7,7 @@ class UIManager {
     private stringToDraw;
     private currentDrawString;
     private countDrawLetter;
-    private drawTime = 150;
+    private drawTime = 50;
     private drawEnd: boolean = true;
     private messageDisplayed: boolean = false;
 
@@ -49,7 +49,6 @@ class UIManager {
     }
 
     public drawPrettyText(pString: string): void {
-        console.log(pString);
         if (pString == null || pString == undefined || pString == "")
             return;
         this.UI.levelVisible = true;
@@ -81,13 +80,11 @@ class UIManager {
         this.currentDrawString = " ";
         this.countDrawLetter = 0;
         this.drawEnd = false;
+        this.messageDisplayed = true;
     }
 
     private onClickText() {
-        console.log("click");
-
         if (this.messageDisplayed) {
-            console.log("click text");
             if (this.drawEnd) {
                 this.messageDisplayed = false;
                 this.UI.levelVisible = false;

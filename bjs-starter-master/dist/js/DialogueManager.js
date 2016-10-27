@@ -12,7 +12,7 @@ var DialogueManager = (function () {
         if (this.Dialogs != null) {
             this.currentDialog = this.Dialogs["dialog_" + DialogueManager.eventParam];
             console.log("Dial: ", this.currentDialog["text"][0]);
-            this.uiMan.drawText(this.currentDialog["text"][0]);
+            this.uiMan.drawPrettyText(this.currentDialog["text"][0]);
         }
     };
     DialogueManager.prototype.nextStep = function () {
@@ -26,7 +26,7 @@ var DialogueManager = (function () {
             this.currentIndexDialog = 0;
         }
         else {
-            this.uiMan.drawText(this.currentDialog["text"][this.currentIndexDialog]);
+            this.uiMan.drawPrettyText(this.currentDialog["text"][this.currentIndexDialog]);
         }
     };
     DialogueManager.prototype.checkCallback = function (pAction, pParam) {
