@@ -1,5 +1,6 @@
 class DialogueManager {
-    public static eventParam:string;
+    public static eventParam: string;
+    private eventTeleport = new Event('onTeleport');
     private uiMan;
     private triggerMan;
     private currentDialog: Array<Array<string>>;
@@ -39,6 +40,11 @@ class DialogueManager {
             this.uiMan.drawPrettyText(this.currentDialog["text"][this.currentIndexDialog]);
         }
     }
+
+    private teleport() {
+        Player.getInstance().resetPos();
+
+    }
     
     private checkCallback(pAction, pParam) {
         if (pAction == null) return;
@@ -50,6 +56,7 @@ class DialogueManager {
                 Player.getInstance().canMove = true;
                 break;
             case "Teleport":
+                window.dispatchEvent(this.eventTeleport);
                 break;
             case "EnableTrigger":
                 this.triggerMan.switchTriggerArray([], true, "Trigger-Dial_" + pParam);

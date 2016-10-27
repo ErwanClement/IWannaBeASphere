@@ -26,9 +26,9 @@ class Player extends StateMachineElement {
         this._mesh.position.y = 0.5;
         this._mesh.position.z = 4;
         this.setModeNormal();
+        window.addEventListener('onTeleport', this.resetPos.bind(this));
 
         Player.instance = this;
-
         return Player.instance;
     }
 
@@ -126,7 +126,11 @@ class Player extends StateMachineElement {
 
 
 
-    
+    public resetPos() {
+        this._mesh.x = 0;
+        this._mesh.y = 0;
+        this._mesh.z = 0;
+    }
 
     //On repupere le forward du player
     private getForward(pMoveForward) {

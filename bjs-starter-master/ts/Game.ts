@@ -1,5 +1,5 @@
 class Game {
-
+    private eventTeleportEnd = new Event('onTeleportEnd');
     public static engine: BABYLON.Engine;
     public static scene: BABYLON.Scene;
     private camera;
@@ -8,7 +8,7 @@ class Game {
     private uiMan: UIManager;
     private triggerMan: TriggerManager;
 
-    public ground;
+    public currentLevel: BABYLON.AbstractMesh[];
     public player;
     //Array qui contiendra tout les elements qui auront un doAction
     public gameElement: Array<StateMachineElement> = [];
@@ -64,6 +64,7 @@ class Game {
 
     //Création de la scene, de la light et du Trigger Manager
     private _initScene() {
+        window.addEventListener('onTeleport', this.chargeLevel2.bind(this));
         Game.scene = new BABYLON.Scene(Game.engine);
         Game.scene.collisionsEnabled = true;
 
@@ -87,7 +88,7 @@ class Game {
     private _initGame() {
         //Game.scene.debugLayer.show();
 
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, () => { });
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, (meshes) => { this.currentLevel = meshes; window.dispatchEvent(this.eventTeleportEnd);});
 
         //TEST: Creation d'un trigger de dialogue
         let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
@@ -111,5 +112,13 @@ class Game {
         this.player = Player.getInstance();
         this.gameElement.push(this.player);
         this.camera.target = this.player.mesh;
+    }
+
+    private chargeLevel2() {
+        for (var i: number = this.currentLevel.length - 1; i > 0 ; i--) {
+            this.currentLevel[i].dispose();
+        }
+
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, (meshes) => { this.currentLevel = meshes;});
     }
 }

@@ -1,5 +1,6 @@
 var Game = (function () {
     function Game(canvasId) {
+        this.eventTeleportEnd = new Event('onTeleportEnd');
         //Array qui contiendra tout les elements qui auront un doAction
         this.gameElement = [];
         var canvas = document.getElementById(canvasId);
@@ -41,6 +42,7 @@ var Game = (function () {
     };
     //Cr�ation de la scene, de la light et du Trigger Manager
     Game.prototype._initScene = function () {
+        window.addEventListener('onTeleport', this.chargeLevel2.bind(this));
         Game.scene = new BABYLON.Scene(Game.engine);
         Game.scene.collisionsEnabled = true;
         var light = new BABYLON.HemisphericLight('', new BABYLON.Vector3(0, 1, 0), Game.scene);
@@ -58,7 +60,8 @@ var Game = (function () {
     };
     Game.prototype._initGame = function () {
         //Game.scene.debugLayer.show();
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function () { });
+        var _this = this;
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; window.dispatchEvent(_this.eventTeleportEnd); });
         //TEST: Creation d'un trigger de dialogue
         var mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
         mesh.position.y = 2;
@@ -78,6 +81,13 @@ var Game = (function () {
         this.player = Player.getInstance();
         this.gameElement.push(this.player);
         this.camera.target = this.player.mesh;
+    };
+    Game.prototype.chargeLevel2 = function () {
+        var _this = this;
+        for (var i = this.currentLevel.length - 1; i > 0; i--) {
+            this.currentLevel[i].dispose();
+        }
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; });
     };
     return Game;
 }());

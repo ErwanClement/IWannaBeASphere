@@ -23,6 +23,7 @@ var Player = (function (_super) {
         this._mesh.position.y = 0.5;
         this._mesh.position.z = 4;
         this.setModeNormal();
+        window.addEventListener('onTeleport', this.resetPos.bind(this));
         Player.instance = this;
         return Player.instance;
     }
@@ -105,6 +106,11 @@ var Player = (function (_super) {
             Player.instance._mesh.rotate(rotationVector, BABYLON.Tools.ToRadians(this.angularSpeed));
         }
         this.checkCollisionWithTrigger();
+    };
+    Player.prototype.resetPos = function () {
+        this._mesh.x = 0;
+        this._mesh.y = 0;
+        this._mesh.z = 0;
     };
     //On repupere le forward du player
     Player.prototype.getForward = function (pMoveForward) {
