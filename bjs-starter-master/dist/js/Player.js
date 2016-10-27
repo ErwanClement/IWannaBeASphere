@@ -8,9 +8,9 @@ var Player = (function (_super) {
     function Player(pGameScene, pGameEngine) {
         _super.call(this);
         this.eventTriggerDial = new Event('onTriggerDialogue');
-        this.speed = 0.03;
+        this.speed = 0.25;
         this.gravity = 0.1;
-        this.angularSpeed = 4;
+        this.angularSpeed = 2.5;
         //Bool de mouvement
         this._canMove = true;
         this.moveForward = false;
@@ -114,7 +114,7 @@ var Player = (function (_super) {
             vector = new BABYLON.Vector3(1, 0, 0);
         else
             vector = new BABYLON.Vector3(-1, 0, 0);
-        vector.multiplyByFloats(this.speed, this.speed, this.speed);
+        vector = vector.multiplyByFloats(this.speed, this.speed, this.speed);
         var forward = BABYLON.Vector3.TransformCoordinates(vector, matrice);
         forward = forward.subtract(Player.instance._mesh.position);
         return forward;

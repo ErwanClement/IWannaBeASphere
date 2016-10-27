@@ -2,9 +2,9 @@ class Player extends StateMachineElement {
 
     public static instance: Player;
     private eventTriggerDial = new Event('onTriggerDialogue');
-    public speed = 0.03;
+    public speed = 0.25;
     public gravity = 0.1;
-    public angularSpeed = 4;
+    public angularSpeed = 2.5;
     public actionManager;
 
     private gameScene;
@@ -136,7 +136,7 @@ class Player extends StateMachineElement {
             vector = new BABYLON.Vector3(1, 0, 0);
         else
             vector = new BABYLON.Vector3(-1, 0, 0);
-        vector.multiplyByFloats(this.speed, this.speed, this.speed);
+        vector = vector.multiplyByFloats(this.speed, this.speed, this.speed);
         let forward: BABYLON.Vector3 = BABYLON.Vector3.TransformCoordinates(vector, matrice);
         forward = forward.subtract(Player.instance._mesh.position);
 

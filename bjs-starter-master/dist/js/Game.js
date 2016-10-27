@@ -46,13 +46,13 @@ var Game = (function () {
         var light = new BABYLON.HemisphericLight('', new BABYLON.Vector3(0, 1, 0), Game.scene);
         light.intensity = 0.7;
         //Creation et Parametrage de la camera
-        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-1, 1, 0), Game.scene);
+        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 0, 0), Game.scene);
         this.camera.rotationOffset = -90;
-        this.camera.maxCameraSpeed = 5;
+        this.camera.maxCameraSpeed = 1;
         //this.camera.cameraAcceleration = 0.05;
-        //this.camera.radius = 30; // how far from the object to follow
-        //this.camera.heightOffset = 8; // how high above the object to place the camera
-        //this.camera.rotationOffset = 180; // the viewing angle
+        this.camera.radius = 8; // how far from the object to follow
+        this.camera.heightOffset = 2; // how high above the object to place the camera
+        //    this.camera.rotationOffset = -90; // the viewing angle
         //this.scene.activeCamera = camera;
         //window.addEventListener("keyup", (e: KeyboardEvent) => { console.log(TriggerManager.triggerActiveArray); });
     };
