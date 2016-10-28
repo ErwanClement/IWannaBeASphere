@@ -120,7 +120,7 @@ class Game {
         this.triggerMan.switchTriggerArray([mesh]);
 
         let mesh3 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_03", { size: 1 }, Game.scene);
-        mesh3.position.y = 0.5;
+        mesh3.position.y = 0.5; 
         mesh3.position.x = 4;
         mesh3.position.z = -4;
         this.triggerMan.addTrigger(mesh3);*/
