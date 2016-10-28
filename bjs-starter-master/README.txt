@@ -1,0 +1,21 @@
+###############______READ_ME_____________###########
+
+------------------HISTOIRE DU JEU-----------------------
+
+Vous incarnez Cube, une jeune forme géométrique vivant dans un monde ou sévit la ségrégation entre cube et sphère. Comme tout jeune de son âge, Cube est à la recherche d'un emploi. Cependant, tout ne se passe pas comme prévu lorsque le travail qu'il a choisi est réservé aux Sphères...
+
+------------------BUT-----------------------
+
+I Wanna Be A Sphere étant un jeu narratif, vous devez tout simplement suivre l'histoire -ou pas...- et arriver à la fin du jeu.
+
+------------------CONTROLS-----------------------
+
+Déplacements : 
+Z - Avancer
+S - Reculer
+Q - Se tourner à gauche
+D - Se tourner à droite
+
+------------------BUG REPORT-----------------------
+
+-Certaines collisions sont... spéciales. 
