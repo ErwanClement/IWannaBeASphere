@@ -1,5 +1,6 @@
 var Game = (function () {
     function Game(canvasId) {
+        this.eventTeleportEnd = new Event('onTeleportEnd');
         //Array qui contiendra tout les elements qui auront un doAction
         this.gameElement = [];
         var canvas = document.getElementById(canvasId);
@@ -49,24 +50,26 @@ var Game = (function () {
     };
     //Cr�ation de la scene, de la light et du Trigger Manager
     Game.prototype._initScene = function () {
+        window.addEventListener('onTeleport', this.chargeLevel2.bind(this));
         Game.scene = new BABYLON.Scene(Game.engine);
         Game.scene.collisionsEnabled = true;
         var light = new BABYLON.HemisphericLight('', new BABYLON.Vector3(0, 1, 0), Game.scene);
         light.intensity = 0.7;
         //Creation et Parametrage de la camera
-        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(-1, 1, 0), Game.scene);
+        this.camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 0, 0), Game.scene);
         this.camera.rotationOffset = -90;
-        this.camera.maxCameraSpeed = 5;
+        this.camera.maxCameraSpeed = 1;
         //this.camera.cameraAcceleration = 0.05;
-        //this.camera.radius = 30; // how far from the object to follow
-        //this.camera.heightOffset = 8; // how high above the object to place the camera
-        //this.camera.rotationOffset = 180; // the viewing angle
+        this.camera.radius = 8; // how far from the object to follow
+        this.camera.heightOffset = 2; // how high above the object to place the camera
+        //    this.camera.rotationOffset = -90; // the viewing angle
         //this.scene.activeCamera = camera;
         //window.addEventListener("keyup", (e: KeyboardEvent) => { console.log(TriggerManager.triggerActiveArray); });
     };
     Game.prototype._initGame = function () {
         //Game.scene.debugLayer.show();
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "toilette.babylon", Game.scene, function () { });
+        var _this = this;
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; window.dispatchEvent(_this.eventTeleportEnd); });
         //TEST: Creation d'un trigger de dialogue
         var mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
         mesh.position.y = 2;
@@ -86,6 +89,13 @@ var Game = (function () {
         this.player = Player.getInstance();
         this.gameElement.push(this.player);
         this.camera.target = this.player.mesh;
+    };
+    Game.prototype.chargeLevel2 = function () {
+        var _this = this;
+        for (var i = this.currentLevel.length - 1; i > 0; i--) {
+            this.currentLevel[i].dispose();
+        }
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; });
     };
     return Game;
 }());

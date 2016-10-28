@@ -21,7 +21,6 @@ class TriggerManager {
     public disableTrigger() {
         let lObjectToMove: BABYLON.Mesh;
         for (let j = 0; j < TriggerManager._triggerActiveArray.length; j++) {
-            console.log(TriggerManager._triggerActiveArray[j].name); console.log(TriggerManager.eventParam);
             if (TriggerManager._triggerActiveArray[j].name == TriggerManager.eventParam) {
                  lObjectToMove = TriggerManager._triggerActiveArray[j];
                  this._triggerInactiveArray.push(lObjectToMove);

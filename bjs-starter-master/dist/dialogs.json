@@ -20,6 +20,7 @@
 		"le plan du centre commercial afin de repérer sa destination."
 		],
         "endCallback": [
+            {"fct": "Teleport"},
             {"fct": "EnableTrigger", "param": "02"},
             {"fct": "EnableTrigger", "param": "03"},
             {"fct": "EnableTrigger", "param": "04"},   

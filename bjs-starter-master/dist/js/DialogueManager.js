@@ -1,5 +1,6 @@
 var DialogueManager = (function () {
     function DialogueManager(pDialog, pUiMan, pTriggerMan) {
+        this.eventTeleport = new Event('onTeleport');
         this.currentIndex = null;
         this.currentIndexDialog = 0;
         this.uiMan = pUiMan;
@@ -7,7 +8,6 @@ var DialogueManager = (function () {
         this.Dialogs = pDialog;
         window.addEventListener('onEndDrawDialogue', this.nextStep.bind(this));
         window.addEventListener('onTriggerDialogue', this.chargeDialog.bind(this));
-        this.uiMan.drawPrettyText("text", true);
     }
     DialogueManager.prototype.chargeDialog = function () {
         if (this.Dialogs != null) {
@@ -32,6 +32,9 @@ var DialogueManager = (function () {
             this.uiMan.drawPrettyText(this.currentDialog["text"][this.currentIndexDialog]);
         }
     };
+    DialogueManager.prototype.teleport = function () {
+        Player.getInstance().resetPos();
+    };
     DialogueManager.prototype.checkCallback = function (pAction, pParam) {
         if (pAction == null)
             return;
@@ -43,6 +46,7 @@ var DialogueManager = (function () {
                 Player.getInstance().canMove = true;
                 break;
             case "Teleport":
+                window.dispatchEvent(this.eventTeleport);
                 break;
             case "EnableTrigger":
                 this.triggerMan.switchTriggerArray([], true, "Trigger-Dial_" + pParam);
