@@ -1,5 +1,4 @@
 class Game {
-    private eventTeleportEnd = new Event('onTeleportEnd');
     public static engine: BABYLON.Engine;
     public static scene: BABYLON.Scene;
     private camera;
@@ -102,26 +101,30 @@ class Game {
     private _initGame() {
         //Game.scene.debugLayer.show();
 
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, (meshes) => { this.currentLevel = meshes; window.dispatchEvent(this.eventTeleportEnd);});
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, (meshes) => {
+            this.currentLevel = meshes;
+            this.clearColision();
+        });
 
         //TEST: Creation d'un trigger de dialogue
         let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
-        mesh.position.y = 2;
+        mesh.position.y = 0.5;
         mesh.position.x = 4;
         this.triggerMan.addTrigger(mesh);
 
         let mesh2 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_02", { size: 1 }, Game.scene);
-        mesh2.position.y = 2;
+        mesh2.position.y = 0.5;
         mesh2.position.x = -4;
         mesh2.position.z = -4;
         this.triggerMan.addTrigger(mesh2);
         this.triggerMan.switchTriggerArray([mesh]);
 
         let mesh3 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_03", { size: 1 }, Game.scene);
-        mesh3.position.y = 2;
+        mesh3.position.y = 0.5;
         mesh3.position.x = 4;
         mesh3.position.z = -4;
         this.triggerMan.addTrigger(mesh3);
+        //EndTest
 
         this.player = Player.getInstance();
         this.gameElement.push(this.player);
@@ -133,6 +136,16 @@ class Game {
             this.currentLevel[i].dispose();
         }
 
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, (meshes) => { this.currentLevel = meshes;});
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, (meshes) => {
+            this.currentLevel = meshes;
+            this.clearColision()
+        });
+    }
+
+    private clearColision() {
+        for (var i: number = this.currentLevel.length - 1; i > 0; i--) {
+            if (this.currentLevel[i].name != "wall")
+                this.currentLevel[i].checkCollisions = false;
+        }
     }
 }

@@ -1,6 +1,5 @@
 var Game = (function () {
     function Game(canvasId) {
-        this.eventTeleportEnd = new Event('onTeleportEnd');
         //Array qui contiendra tout les elements qui auront un doAction
         this.gameElement = [];
         var canvas = document.getElementById(canvasId);
@@ -69,23 +68,27 @@ var Game = (function () {
     Game.prototype._initGame = function () {
         //Game.scene.debugLayer.show();
         var _this = this;
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; window.dispatchEvent(_this.eventTeleportEnd); });
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage1.babylon", Game.scene, function (meshes) {
+            _this.currentLevel = meshes;
+            _this.clearColision();
+        });
         //TEST: Creation d'un trigger de dialogue
         var mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
-        mesh.position.y = 2;
+        mesh.position.y = 0.5;
         mesh.position.x = 4;
         this.triggerMan.addTrigger(mesh);
         var mesh2 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_02", { size: 1 }, Game.scene);
-        mesh2.position.y = 2;
+        mesh2.position.y = 0.5;
         mesh2.position.x = -4;
         mesh2.position.z = -4;
         this.triggerMan.addTrigger(mesh2);
         this.triggerMan.switchTriggerArray([mesh]);
         var mesh3 = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_03", { size: 1 }, Game.scene);
-        mesh3.position.y = 2;
+        mesh3.position.y = 0.5;
         mesh3.position.x = 4;
         mesh3.position.z = -4;
         this.triggerMan.addTrigger(mesh3);
+        //EndTest
         this.player = Player.getInstance();
         this.gameElement.push(this.player);
         this.camera.target = this.player.mesh;
@@ -95,7 +98,16 @@ var Game = (function () {
         for (var i = this.currentLevel.length - 1; i > 0; i--) {
             this.currentLevel[i].dispose();
         }
-        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, function (meshes) { _this.currentLevel = meshes; });
+        BABYLON.SceneLoader.ImportMesh("", "scenes/", "etage2.babylon", Game.scene, function (meshes) {
+            _this.currentLevel = meshes;
+            _this.clearColision();
+        });
+    };
+    Game.prototype.clearColision = function () {
+        for (var i = this.currentLevel.length - 1; i > 0; i--) {
+            if (this.currentLevel[i].name != "wall")
+                this.currentLevel[i].checkCollisions = false;
+        }
     };
     return Game;
 }());

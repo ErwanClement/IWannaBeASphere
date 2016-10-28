@@ -98,6 +98,9 @@ var Player = (function (_super) {
         else if (this.moveBackward && this._canMove) {
             Player.instance._mesh.moveWithCollisions(this.getForward(false));
         }
+        console.log(this._mesh.position.y);
+        this._mesh.position.y = 0.5;
+        console.log(this._mesh.position.y);
         var rotationVector = new BABYLON.Vector3(0, 1, 0);
         if (this.turnLeft && this._canMove) {
             Player.instance._mesh.rotate(rotationVector, BABYLON.Tools.ToRadians(-this.angularSpeed));
@@ -108,9 +111,9 @@ var Player = (function (_super) {
         this.checkCollisionWithTrigger();
     };
     Player.prototype.resetPos = function () {
-        this._mesh.x = 0;
-        this._mesh.y = 0;
-        this._mesh.z = 0;
+        this._mesh.position.x = 0;
+        this._mesh.position.y = 0;
+        this._mesh.position.z = 0;
     };
     //On repupere le forward du player
     Player.prototype.getForward = function (pMoveForward) {

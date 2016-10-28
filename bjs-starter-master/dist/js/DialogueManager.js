@@ -20,7 +20,7 @@ var DialogueManager = (function () {
     DialogueManager.prototype.nextStep = function () {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
-            //SoundManager.stopSound();
+            SoundManager.stopSound();
             if (this.currentDialog["endCallback"] != null) {
                 var lLenght = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)

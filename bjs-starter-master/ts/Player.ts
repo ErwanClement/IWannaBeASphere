@@ -5,11 +5,10 @@ class Player extends StateMachineElement {
     public speed = 0.25;
     public gravity = 0.1;
     public angularSpeed = 2.5;
-    public actionManager;
 
-    private gameScene;
-    private gameEngine;
-    private _mesh;
+    private gameScene: BABYLON.Scene;
+    private gameEngine: BABYLON.Engine;
+    private _mesh: BABYLON.Mesh;
 
     //Bool de mouvement
     private _canMove = true;
@@ -109,8 +108,9 @@ class Player extends StateMachineElement {
             Player.instance._mesh.moveWithCollisions(this.getForward(false));
         }
 
-
-
+        console.log(this._mesh.position.y);
+        this._mesh.position.y = 0.5;
+        console.log(this._mesh.position.y);
 
         let rotationVector = new BABYLON.Vector3(0, 1, 0);
         if (this.turnLeft && this._canMove) {
@@ -127,9 +127,9 @@ class Player extends StateMachineElement {
 
 
     public resetPos() {
-        this._mesh.x = 0;
-        this._mesh.y = 0;
-        this._mesh.z = 0;
+        this._mesh.position.x = 0;
+        this._mesh.position.y = 0;
+        this._mesh.position.z = 0;
     }
 
     //On repupere le forward du player

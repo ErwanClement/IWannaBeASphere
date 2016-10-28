@@ -30,7 +30,7 @@ class DialogueManager {
     public nextStep() {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
-            //SoundManager.stopSound();
+            SoundManager.stopSound();
             if (this.currentDialog["endCallback"] != null){
                 let lLenght: number = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)
