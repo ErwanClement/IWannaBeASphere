@@ -18,6 +18,6 @@ D - Se tourner à droite
 
 ------------------BUG REPORT-----------------------
 
-/!\ HARD BUG /!\ Le Canvas 2D perd le focus de l'évènement clic après un seul dialogue. Il est donc impossible d'obtenir les callback donc de débloquer la suite du jeu, donc, pas de jeu, donc, on est dégouté. 
+/!\ HARD BUG /!\ Le Canvas 2D perd le focus de l'évènement clic après un seul dialogue. Il est donc impossible d'obtenir les callback donc de débloquer la suite du jeu, donc, pas de jeu, donc, on est dégouté. Vraiment.
 
 -Pas de collision sur les objets & wall. (Ces collisions faisaient s'envoler le player vers d'autres horizons... Nous les avons donc désactivées.)
