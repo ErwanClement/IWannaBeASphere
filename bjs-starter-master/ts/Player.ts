@@ -23,7 +23,8 @@ class Player extends StateMachineElement {
         this.gameEngine = pGameEngine;
         this._mesh = BABYLON.MeshBuilder.CreateBox("Player", { size: 1 }, this.gameScene);
         this._mesh.position.y = 0.5;
-        this._mesh.position.z = 4;
+        this._mesh.position.z = -3;
+        this._mesh.position.x = -4;
         this.setModeNormal();
         window.addEventListener('onTeleport', this.resetPos.bind(this));
 
