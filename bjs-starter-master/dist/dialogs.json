@@ -52,7 +52,8 @@
 		],
         "endCallback": [
             {"fct": "EnableTrigger", "param": "23"},
-            {"fct": "EnablePlayer"}
+            {"fct": "EnablePlayer"},
+            {"fct": "Teleport"}
         ]
 	},
 
