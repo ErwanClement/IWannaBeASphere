@@ -21,9 +21,7 @@
 		],
         "endCallback": [
             {"fct": "EnableTrigger", "param": "02"},
-            {"fct": "EnableTrigger", "param": "03"},
-            {"fct": "EnableTrigger", "param": "04"},   
-            {"fct": "EnableTrigger", "param": "05"},
+            {"fct": "EnableTrigger", "param": "03"}, 
             {"fct": "EnableTrigger", "param": "29"},
             {"fct": "EnablePlayer"}
         ]
@@ -36,6 +34,8 @@
 		"tel point qu’il sentit sa vessie se remplir instantanément."
 		],
         "endCallback": [
+         	{"fct": "EnableTrigger", "param": "04"},	
+            {"fct": "EnableTrigger", "param": "05"},   
             {"fct": "EnableTrigger", "param": "06"},
             {"fct": "EnableTrigger", "param": "07"},
             {"fct": "EnablePlayer"}
