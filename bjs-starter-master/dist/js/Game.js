@@ -1,5 +1,6 @@
 var Game = (function () {
     function Game(canvasId) {
+        this.eventTeleport = new Event('onTeleport');
         //Array qui contiendra tout les elements qui auront un doAction
         this.gameElement = [];
         var canvas = document.getElementById(canvasId);
@@ -49,6 +50,7 @@ var Game = (function () {
     };
     //Cr�ation de la scene, de la light et du Trigger Manager
     Game.prototype._initScene = function () {
+        var _this = this;
         window.addEventListener('onTeleport', this.chargeLevel2.bind(this));
         Game.scene = new BABYLON.Scene(Game.engine);
         Game.scene.collisionsEnabled = true;
@@ -59,11 +61,12 @@ var Game = (function () {
         this.camera.rotationOffset = -90;
         this.camera.maxCameraSpeed = 1;
         //this.camera.cameraAcceleration = 0.05;
-        this.camera.radius = 8; // how far from the object to follow
-        this.camera.heightOffset = 2; // how high above the object to place the camera
-        //    this.camera.rotationOffset = -90; // the viewing angle
-        //this.scene.activeCamera = camera;
-        //window.addEventListener("keyup", (e: KeyboardEvent) => { console.log(TriggerManager.triggerActiveArray); });
+        this.camera.radius = 8;
+        this.camera.heightOffset = 2;
+        window.addEventListener("keyup", function (e) {
+            if (e.keyCode == 84)
+                window.dispatchEvent(_this.eventTeleport);
+        });
     };
     Game.prototype._initGame = function () {
         //Game.scene.debugLayer.show();

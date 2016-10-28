@@ -2,6 +2,7 @@ class Game {
     public static engine: BABYLON.Engine;
     public static scene: BABYLON.Scene;
     private camera;
+    private eventTeleport = new Event('onTeleport');
 
     private dialogueMan: DialogueManager;
     private soundMan: SoundManager;
@@ -89,12 +90,12 @@ class Game {
         this.camera.rotationOffset = -90;
         this.camera.maxCameraSpeed = 1; 
         //this.camera.cameraAcceleration = 0.05;
-        this.camera.radius = 8; // how far from the object to follow
-        this.camera.heightOffset = 2; // how high above the object to place the camera
-    //    this.camera.rotationOffset = -90; // the viewing angle
-        //this.scene.activeCamera = camera;
+        this.camera.radius = 8;
+        this.camera.heightOffset = 2;
 
-        //window.addEventListener("keyup", (e: KeyboardEvent) => { console.log(TriggerManager.triggerActiveArray); });
+        window.addEventListener("keyup", (e: KeyboardEvent) => {
+            if (e.keyCode == 84) window.dispatchEvent(this.eventTeleport);
+        });
     }
 
 
