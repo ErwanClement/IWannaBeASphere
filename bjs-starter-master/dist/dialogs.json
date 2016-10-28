@@ -264,7 +264,8 @@
 		"text": ["Oh, quelle musique agréable."],
         "endCallback": [
             {"fct": "EnableTrigger", "param": "30"},
-            {"fct": "EnablePlayer"}
+            {"fct": "EnablePlayer"},
+            {"fct": "Teleport"}
         ]
 	},
 
