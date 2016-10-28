@@ -11,6 +11,7 @@ var DialogueManager = (function () {
     }
     DialogueManager.prototype.chargeDialog = function () {
         if (this.Dialogs != null) {
+            Player.getInstance().canMove = false;
             this.currentDialog = this.Dialogs["dialog_" + DialogueManager.eventParam];
             console.log("Dial: ", this.currentDialog["text"][0]);
             this.uiMan.drawPrettyText(this.currentDialog["text"][0]);
@@ -21,6 +22,7 @@ var DialogueManager = (function () {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
             SoundManager.stopSound();
+            Player.getInstance().canMove = true;
             if (this.currentDialog["endCallback"] != null) {
                 var lLenght = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)

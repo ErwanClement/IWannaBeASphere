@@ -1,6 +1,6 @@
 class TriggerManager {
     private static _triggerActiveArray: Array<BABYLON.Mesh> = [];
-    public _triggerInactiveArray: Array<BABYLON.Mesh> = [];
+    private _triggerInactiveArray: Array<BABYLON.Mesh> = [];
     public static eventParam: string;
 
     constructor() {
@@ -18,6 +18,7 @@ class TriggerManager {
     public addTrigger(pTriggerToAdd: BABYLON.Mesh) {
         console.log("TriggerManager: Add " + pTriggerToAdd.name);
         this._triggerInactiveArray.push(pTriggerToAdd);
+        console.log("TriggerManager: Array " + this._triggerInactiveArray.length);
     } 
 
     public disableTrigger() {
@@ -82,5 +83,6 @@ class TriggerManager {
                 }
             }
         } else console.log("Error can switch");
+        console.log("3" + TriggerManager.triggerActiveArray);
     }
 }

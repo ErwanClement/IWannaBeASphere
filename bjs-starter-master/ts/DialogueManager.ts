@@ -19,6 +19,7 @@ class DialogueManager {
 
     private chargeDialog() {
         if (this.Dialogs != null) {
+            Player.getInstance().canMove = false;
             this.currentDialog = this.Dialogs["dialog_" + DialogueManager.eventParam];
             console.log("Dial: ", this.currentDialog["text"][0]);
                 
@@ -31,6 +32,7 @@ class DialogueManager {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
             SoundManager.stopSound();
+            Player.getInstance().canMove = true;
             if (this.currentDialog["endCallback"] != null){
                 let lLenght: number = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)

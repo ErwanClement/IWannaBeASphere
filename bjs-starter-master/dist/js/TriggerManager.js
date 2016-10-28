@@ -15,6 +15,7 @@ var TriggerManager = (function () {
     TriggerManager.prototype.addTrigger = function (pTriggerToAdd) {
         console.log("TriggerManager: Add " + pTriggerToAdd.name);
         this._triggerInactiveArray.push(pTriggerToAdd);
+        console.log("TriggerManager: Array " + this._triggerInactiveArray.length);
     };
     TriggerManager.prototype.disableTrigger = function () {
         var lObjectToMove;
@@ -82,6 +83,7 @@ var TriggerManager = (function () {
         }
         else
             console.log("Error can switch");
+        console.log("3" + TriggerManager.triggerActiveArray);
     };
     TriggerManager._triggerActiveArray = [];
     return TriggerManager;
