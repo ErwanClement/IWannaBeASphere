@@ -10,7 +10,8 @@ I Wanna Be A Sphere étant un jeu narratif, vous devez tout simplement suivre l'h
 
 ------------------CONTROLS-----------------------
 
-
+Space - Passer le texte
+Clic - Passer le texte
 
 Déplacements : 
 Z - Avancer
@@ -19,7 +20,6 @@ Q - Se tourner à gauche
 D - Se tourner à droite
 
 CHEATS :
-Space - Passer le texte
 T - Téléportation 2eme LD
 
 
