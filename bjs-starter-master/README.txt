@@ -10,14 +10,21 @@ I Wanna Be A Sphere étant un jeu narratif, vous devez tout simplement suivre l'h
 
 ------------------CONTROLS-----------------------
 
+
+
 Déplacements : 
 Z - Avancer
 S - Reculer
 Q - Se tourner à gauche
 D - Se tourner à droite
 
+CHEATS :
+Space - Passer le texte
+T - Téléportation 2eme LD
+
+
 ------------------BUG REPORT-----------------------
 
-/!\ HARD BUG /!\ Le Canvas 2D perd le focus de l'évènement clic après un seul dialogue. Il est donc impossible d'obtenir les callback donc de débloquer la suite du jeu, donc, pas de jeu, donc, on est dégouté. Vraiment.
+/!\ HARD BUG /!\ Le Canvas 2D perd le focus de l'évènement clic après un seul dialogue. Il est donc impossible d'obtenir les callback par le clic. Les dialogues peuvent être dépassés en appuyant sur Espace pour pallier à ce problème. 
 
 -Pas de collision sur les objets & wall. (Ces collisions faisaient s'envoler le player vers d'autres horizons... Nous les avons donc désactivées.)
