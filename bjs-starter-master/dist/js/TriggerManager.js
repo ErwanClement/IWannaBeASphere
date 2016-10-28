@@ -2,6 +2,7 @@ var TriggerManager = (function () {
     function TriggerManager() {
         this._triggerInactiveArray = [];
         window.addEventListener('onTriggerDialogue', this.disableTrigger.bind(this));
+        window.addEventListener('onTeleport', this.clearActiveTrigger.bind(this));
     }
     Object.defineProperty(TriggerManager, "triggerActiveArray", {
         get: function () {
@@ -11,6 +12,9 @@ var TriggerManager = (function () {
         configurable: true
     });
     ;
+    TriggerManager.prototype.clearActiveTrigger = function () {
+        TriggerManager.triggerActiveArray = [];
+    };
     //Permet d'ajouter un trigger (Il est desactiver de base)
     TriggerManager.prototype.addTrigger = function (pTriggerToAdd) {
         console.log("TriggerManager: Add " + pTriggerToAdd.name);
@@ -83,7 +87,6 @@ var TriggerManager = (function () {
         }
         else
             console.log("Error can switch");
-        console.log("3" + TriggerManager.triggerActiveArray);
     };
     TriggerManager._triggerActiveArray = [];
     return TriggerManager;

@@ -39,7 +39,7 @@ class UIManager {
         this.UI.levelVisible = false;
         this.UIAction.actionManager = new BABYLON.ActionManager(this.scene);
         this.UIAction.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, this.onClickText.bind(this)));
-        this.drawPrettyText("Bonjour");
+        this.drawPrettyText("Bonjour et bienvenu dans le centre commerciale");
     }
 
     public drawText(pString: string): void {

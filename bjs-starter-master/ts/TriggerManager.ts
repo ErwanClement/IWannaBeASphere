@@ -5,12 +5,17 @@ class TriggerManager {
 
     constructor() {
         window.addEventListener('onTriggerDialogue', this.disableTrigger.bind(this));
+        window.addEventListener('onTeleport', this.clearActiveTrigger.bind(this));
     }
 
 
     public static get triggerActiveArray(): Array<BABYLON.Mesh> {
         return this._triggerActiveArray;
     };
+
+    public clearActiveTrigger() {
+        TriggerManager.triggerActiveArray = [];
+    }
 
 
 
@@ -83,6 +88,5 @@ class TriggerManager {
                 }
             }
         } else console.log("Error can switch");
-        console.log("3" + TriggerManager.triggerActiveArray);
     }
 }
