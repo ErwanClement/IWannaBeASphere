@@ -1,5 +1,6 @@
 var UIManager = (function () {
     function UIManager(pScene) {
+        var _this = this;
         this.eventEnd = new Event('onEndDrawDialogue');
         this.drawTime = 50;
         this.drawEnd = true;
@@ -24,6 +25,10 @@ var UIManager = (function () {
             backgroundFill: "#ffffff88",
             backgroundRoundRadius: 50,
             x: window.innerWidth / 2 - 1000
+        });
+        window.addEventListener("keyup", function (e) {
+            if (e.keyCode == 32)
+                _this.onClickText();
         });
         this.UI.levelVisible = false;
         this.UIAction.actionManager = new BABYLON.ActionManager(this.scene);

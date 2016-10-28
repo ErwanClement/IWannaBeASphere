@@ -36,6 +36,9 @@ class UIManager {
             backgroundRoundRadius: 50,
             x: window.innerWidth / 2 - 1000
         });
+        window.addEventListener("keyup", (e: KeyboardEvent) => {
+            if (e.keyCode == 32) this.onClickText();
+        });
         this.UI.levelVisible = false;
         this.UIAction.actionManager = new BABYLON.ActionManager(this.scene);
         this.UIAction.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, this.onClickText.bind(this)));
