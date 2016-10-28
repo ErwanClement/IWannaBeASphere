@@ -1,6 +1,6 @@
 class TriggerManager {
     private static _triggerActiveArray: Array<BABYLON.Mesh> = [];
-    private _triggerInactiveArray: Array<BABYLON.Mesh> = [];
+    public _triggerInactiveArray: Array<BABYLON.Mesh> = [];
     public static eventParam: string;
 
     constructor() {
@@ -8,9 +8,11 @@ class TriggerManager {
     }
 
 
-    public static get triggerActiveArray(): Array<BABYLON.Mesh>{
+    public static get triggerActiveArray(): Array<BABYLON.Mesh> {
         return this._triggerActiveArray;
     };
+
+
 
     //Permet d'ajouter un trigger (Il est desactiver de base)
     public addTrigger(pTriggerToAdd: BABYLON.Mesh) {

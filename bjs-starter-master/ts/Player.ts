@@ -56,10 +56,7 @@ class Player extends StateMachineElement {
         return this._mesh;
     };
 
-
-
-
-
+    
 
 
     //
@@ -107,10 +104,8 @@ class Player extends StateMachineElement {
         } else if (this.moveBackward && this._canMove) {
             Player.instance._mesh.moveWithCollisions(this.getForward(false));
         }
-
-        console.log(this._mesh.position.y);
+        
         this._mesh.position.y = 0.5;
-        console.log(this._mesh.position.y);
 
         let rotationVector = new BABYLON.Vector3(0, 1, 0);
         if (this.turnLeft && this._canMove) {
@@ -159,6 +154,7 @@ class Player extends StateMachineElement {
                 
                 //On regarde si le trigger, est un trigger de Dialogue, ...
                 if (meshName.indexOf("Dial") != -1) {
+                    console.log(meshName);
 
                     //... puis on recuperer l'ID du dialogue que sensé lancer le trigger ...
                     let dividedMeshName = meshName.split('_');

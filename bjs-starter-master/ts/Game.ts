@@ -107,7 +107,7 @@ class Game {
         });
 
         //TEST: Creation d'un trigger de dialogue
-        let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
+        /*let mesh = BABYLON.MeshBuilder.CreateBox("Trigger-Dial_01", { size: 1 }, Game.scene);
         mesh.position.y = 0.5;
         mesh.position.x = 4;
         this.triggerMan.addTrigger(mesh);
@@ -123,7 +123,7 @@ class Game {
         mesh3.position.y = 0.5;
         mesh3.position.x = 4;
         mesh3.position.z = -4;
-        this.triggerMan.addTrigger(mesh3);
+        this.triggerMan.addTrigger(mesh3);*/
         //EndTest
 
         this.player = Player.getInstance();
@@ -144,8 +144,16 @@ class Game {
 
     private clearColision() {
         for (var i: number = this.currentLevel.length - 1; i > 0; i--) {
-            if (this.currentLevel[i].name != "wall")
-                this.currentLevel[i].checkCollisions = false;
+            /*if (this.currentLevel[i].name.indexOf("Mur") != -1)
+                break;*/
+            if (this.currentLevel[i].name.indexOf("Trigger-Dial") != -1) {
+                this.triggerMan.addTrigger(this.currentLevel[i] as BABYLON.Mesh);
+                this.currentLevel[i].alphaIndex = 0;
+            }
+            
+            this.currentLevel[i].checkCollisions = false;
         }
+        this.triggerMan.switchTriggerArray(this.triggerMan._triggerInactiveArray, true);
+        console.log(TriggerManager.triggerActiveArray);
     }
 }

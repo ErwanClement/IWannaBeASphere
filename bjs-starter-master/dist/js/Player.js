@@ -98,9 +98,7 @@ var Player = (function (_super) {
         else if (this.moveBackward && this._canMove) {
             Player.instance._mesh.moveWithCollisions(this.getForward(false));
         }
-        console.log(this._mesh.position.y);
         this._mesh.position.y = 0.5;
-        console.log(this._mesh.position.y);
         var rotationVector = new BABYLON.Vector3(0, 1, 0);
         if (this.turnLeft && this._canMove) {
             Player.instance._mesh.rotate(rotationVector, BABYLON.Tools.ToRadians(-this.angularSpeed));
@@ -137,6 +135,7 @@ var Player = (function (_super) {
                 var meshName = TriggerManager.triggerActiveArray[i].name;
                 //On regarde si le trigger, est un trigger de Dialogue, ...
                 if (meshName.indexOf("Dial") != -1) {
+                    console.log(meshName);
                     //... puis on recuperer l'ID du dialogue que sens� lancer le trigger ...
                     var dividedMeshName = meshName.split('_');
                     var dialID = dividedMeshName[dividedMeshName.length - 1];
