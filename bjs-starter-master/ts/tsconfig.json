@@ -8,6 +8,7 @@
 		"Player.ts",
 		"UIManager.ts",
 		"DialogueManager.ts",
+        "SoundManager.ts",
 		"TriggerManager.ts",
 		"StateMachine.ts",
         "Game.ts",

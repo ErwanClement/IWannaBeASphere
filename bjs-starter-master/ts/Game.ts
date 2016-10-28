@@ -5,6 +5,7 @@ class Game {
     private camera;
 
     private dialogueMan: DialogueManager;
+    private soundMan: SoundManager;
     private uiMan: UIManager;
     private triggerMan: TriggerManager;
 
@@ -45,12 +46,25 @@ class Game {
                 this.triggerMan = new TriggerManager();
                 this.uiMan = new UIManager(Game.scene);
                 this.dialogueMan = new DialogueManager(JSON.parse(task.text), this.uiMan, this.triggerMan);
+                this.soundMan = new SoundManager(JSON.parse(task.text));
 
                 this._initGame();
             }
             textTask.onError = (task: BABYLON.TextFileAssetTask) => { console.log("errorload"); }
 
+            loaderDialogue.onFinish = function (tasks) {
+                var loaderSounds = new BABYLON.AssetsManager(Game.scene);
+                SoundManager.loadMusics(loaderSounds);
+                //SoundManager.loadSounds(loaderSounds);
+                loaderSounds.load();
+            }
+
+
             loaderDialogue.load();
+
+            //Load les sons ...
+            
+
             Game.engine.runRenderLoop(() => {
                 //On fait le doAction de tout les gameElements
                 for (var gameElem of this.gameElement) {

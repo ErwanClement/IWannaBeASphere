@@ -25,10 +25,18 @@ var Game = (function () {
                 _this.triggerMan = new TriggerManager();
                 _this.uiMan = new UIManager(Game.scene);
                 _this.dialogueMan = new DialogueManager(JSON.parse(task.text), _this.uiMan, _this.triggerMan);
+                _this.soundMan = new SoundManager(JSON.parse(task.text));
                 _this._initGame();
             };
             textTask.onError = function (task) { console.log("errorload"); };
+            loaderDialogue.onFinish = function (tasks) {
+                var loaderSounds = new BABYLON.AssetsManager(Game.scene);
+                SoundManager.loadMusics(loaderSounds);
+                //SoundManager.loadSounds(loaderSounds);
+                loaderSounds.load();
+            };
             loaderDialogue.load();
+            //Load les sons ...
             Game.engine.runRenderLoop(function () {
                 //On fait le doAction de tout les gameElements
                 for (var _i = 0, _a = _this.gameElement; _i < _a.length; _i++) {

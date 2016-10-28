@@ -14,11 +14,13 @@ var DialogueManager = (function () {
             this.currentDialog = this.Dialogs["dialog_" + DialogueManager.eventParam];
             console.log("Dial: ", this.currentDialog["text"][0]);
             this.uiMan.drawPrettyText(this.currentDialog["text"][0]);
+            SoundManager.playSound("dialog_" + DialogueManager.eventParam);
         }
     };
     DialogueManager.prototype.nextStep = function () {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
+            //SoundManager.stopSound();
             if (this.currentDialog["endCallback"] != null) {
                 var lLenght = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)

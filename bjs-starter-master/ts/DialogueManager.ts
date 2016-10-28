@@ -23,12 +23,14 @@ class DialogueManager {
             console.log("Dial: ", this.currentDialog["text"][0]);
                 
             this.uiMan.drawPrettyText(this.currentDialog["text"][0]);
+            SoundManager.playSound("dialog_" + DialogueManager.eventParam);
         }
     }
 
     public nextStep() {
         this.currentIndexDialog++;
         if (this.currentIndexDialog >= this.currentDialog["text"].length) {
+            //SoundManager.stopSound();
             if (this.currentDialog["endCallback"] != null){
                 let lLenght: number = this.currentDialog["endCallback"].length;
                 for (var i = 0; i < lLenght; i++)
