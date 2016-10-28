@@ -153,7 +153,7 @@ class Game {
             
             this.currentLevel[i].checkCollisions = false;
         }
-        this.triggerMan.switchTriggerArray(this.triggerMan._triggerInactiveArray, true);
-        console.log(TriggerManager.triggerActiveArray);
+        //this.triggerMan.switchTriggerArray(this.triggerMan._triggerInactiveArray, true);
+        this.triggerMan.switchTriggerArray([], true, "Trigger-Dial_01");
     }
 }
