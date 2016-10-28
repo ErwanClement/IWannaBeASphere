@@ -18,4 +18,4 @@ D - Se tourner à droite
 
 ------------------BUG REPORT-----------------------
 
--Certaines collisions sont... spéciales. 
+-Pas de collision sur les objets & wall. (Ces collisions faisaient s'envoler le player vers d'autres horizons... Nous les avons donc désactivées.)
